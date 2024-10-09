@@ -10,11 +10,20 @@ class WordleN():
     """The constructor should get the 'n' value, which is the number of characters
     a word can have for this game of Wordle 
     (e.g. if n = 6 then it should get a list of all 6 letter words)"""
-    def __init__(self, n: int, startWord: str):
+    def __init__(self, n: int):
         self.n = n
-        self.startWord = startWord
         self.getData(n)
         self.chooseWord()
+        
+    """Sets the start word"""
+    def setStartWord(startWord: str):
+        # If it's a valid start word, set self.startWord to passed in word
+        if startWord.lower() in self.possibleWords:
+            self.startWord = startWord.lower()
+            return
+        
+        # If the passed in word is invalid, alert the user and do nothing else
+        print("ERROR: Invalid start word, please choose a different one")
         
     """This function gets all words of length n using getWordsOfLengthN function"""
     def getData(self, n) -> None:
@@ -70,5 +79,5 @@ class WordleN():
     
 if __name__ == "__main__":
     # TEST CODE GOES HERE
-    test = WordleN(5, "Slate")
+    test = WordleN(5)
     print(test.possibleWords)
