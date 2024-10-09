@@ -3,6 +3,8 @@
 # Impliment WordleN class to be able to play/simulate WordleN.
 # Created / Modified by: Mason Lee
 
+from organizeData import getWordsOfLengthN
+
 class WordleN():
     
     """The constructor should get the 'n' value, which is the number of characters
@@ -14,10 +16,9 @@ class WordleN():
         self.getData(n)
         self.chooseWord()
         
-    """This function should grab data from the data folder and store all 
-    words of length 'N' in a list called something like self.possibleWords"""
+    """This function gets all words of length n using getWordsOfLengthN function"""
     def getData(self, n) -> None:
-        pass
+        self.possibleWords = getWordsOfLengthN(self.n)
     
     """This function should choose a random word from self.possibleWords
     as the goal word (the word we're searching for) called self.goalWord"""
@@ -65,3 +66,9 @@ class WordleN():
     it had to guess to reach the goal word"""
     def getSolutionPath(self) -> list[str]:
         pass
+    
+    
+if __name__ == "__main__":
+    # TEST CODE GOES HERE
+    test = WordleN(5, "Slate")
+    print(test.possibleWords)

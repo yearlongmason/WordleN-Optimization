@@ -12,3 +12,8 @@ Parameters:
     hueristic: A function that scores a word"""
 def astar(startWord: str, goalWord: str, potentialWords:list[str], hueristic):
     pass
+
+
+if __name__ == "__main__":
+    # TEST CODE GOES HERE
+    pass
