@@ -4,6 +4,7 @@
 # Created / Modified by: Mason Lee
 
 from organizeData import getWordsOfLengthN
+import random
 
 class WordleN():
     
@@ -13,13 +14,22 @@ class WordleN():
     def __init__(self, n: int):
         self.n = n
         self.getData(n)
-        self.chooseWord()
         
     """Sets the start word"""
-    def setStartWord(startWord: str):
+    def setStartWord(self, startWord: str):
         # If it's a valid start word, set self.startWord to passed in word
         if startWord.lower() in self.possibleWords:
             self.startWord = startWord.lower()
+            return
+        
+        # If the passed in word is invalid, alert the user and do nothing else
+        print("ERROR: Invalid start word, please choose a different one")
+        
+    """Sets the goal word"""
+    def setGoalWord(self, goalWord: str):
+        # If it's a valid start word, set self.startWord to passed in word
+        if goalWord.lower() in self.possibleWords:
+            self.goalWord = goalWord.lower()
             return
         
         # If the passed in word is invalid, alert the user and do nothing else
@@ -31,14 +41,19 @@ class WordleN():
     
     """This function should choose a random word from self.possibleWords
     as the goal word (the word we're searching for) called self.goalWord"""
-    def chooseWord(self) -> None:
+    def getRandomGoalWord(self) -> None:
         pass
     
-    """This function should give back clues about the goal word in a dictionary
-    It should be formatted as index:'color' 
+    """This function should give back clues about self.goalWord in a dictionary
+    It should be formatted as index:'color' where the color is the clue Wordle 
+    would give a player
     For instance:
+    passed in word: "plane"
+    goalWord:       "palms"
+    Would return:
     {0:'green',1:'yellow',2:'yellow',3:'grey',4:'grey'}
-    We can then pass this to a separate function to eliminate words"""
+    We can then pass this to a separate function to eliminate words
+    Remember: This should also support any words of length N"""
     def checkWord(self, word: str) -> dict[int, str]:
         pass
     
@@ -60,7 +75,8 @@ class WordleN():
     {L:3, S:2, P:2, A:2, U:1, G:1, N:1}
     We can then score each word by adding the frequency of each letter in the word
     For instance with these frequencies if we were to score the word: Scan
-    it would have a score of 5 because S and A are worth 2 and N is worth 1"""
+    it would have a score of 5 because S and A are worth 2 and N is worth 1
+    This function should call letter frequency to get the remaining letter frequencies"""
     def generateHeuristic(self, word: str) -> int:
         pass
     
@@ -80,4 +96,7 @@ class WordleN():
 if __name__ == "__main__":
     # TEST CODE GOES HERE
     test = WordleN(5)
+    test.setStartWord("Grape")
+    test.setGoalWord("First")
     print(test.possibleWords)
+    print(f"Start word: {test.startWord} \nGoal word: {test.goalWord}")
