@@ -127,7 +127,7 @@ class WordleN():
             if i in used_letters:
                 continue
             else:
-                value = self.alphabet(i)
+                value = self.alphabet[i]
                 heuristic += value
                 used_letters.append(i)
         return heuristic
@@ -150,5 +150,6 @@ if __name__ == "__main__":
     test = WordleN(5)
     test.setStartWord("Grape")
     test.setGoalWord("First")
-    print(test.possibleWords)
+    test.cleanup_list("q", {0:"yellow"})
+    print(test.letter)
     print(f"Start word: {test.startWord} \nGoal word: {test.goalWord}")
