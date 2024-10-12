@@ -113,7 +113,7 @@ class WordleN():
         for i in self.alphabet.keys():
             if i not in self.used_letters:
                 new_dict[i, frequency]
-                frequence -= 1
+                frequency -= 1
         return new_dict
     
     """This function should return a score for the word that is passed in.
