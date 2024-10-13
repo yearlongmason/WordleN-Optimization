@@ -8,11 +8,10 @@ Parameters:
     startWord: String (the word we're starting on)
     goalWord: String (the word searching for)
     potentialWords: List of strings containing all words that it could potentially be
-                    This list will be widdled down as the algorithm progresses
+                    This list will be whittled down as the algorithm progresses
     hueristic: A function that scores a word"""
 def astar(startWord: str, goalWord: str, potentialWords:list[str], hueristic):
     pass
-
 
 if __name__ == "__main__":
     # TEST CODE GOES HERE
