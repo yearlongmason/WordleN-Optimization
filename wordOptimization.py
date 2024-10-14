@@ -6,6 +6,7 @@
 from algorithm import astar
 from wordleN import WordleN
 from organizeData import getWordsOfLengthN
+import numpy as np
 
 """ This function should take a word, and test is as a starting word using our algorithm.
     The starting word will be tested with every possible goal word, and its score will be
@@ -14,6 +15,24 @@ def scoreWord(word: str) -> int:
     score: int = 0
     wordLength: int = len(word)
     goalWords: list[str] = getWordsOfLengthN(wordLength)
+
+    for goalWord in goalWords:
+        testGame: WordleN = WordleN(wordLength)
+        testGame.startWord = word
+        testGame.goalWord = goalWord
+        solution = astar(testGame)
+        guesses = len(solution)
+        print(goalWord + " - " + str(guesses))
+        score += guesses
+
+    return score
+
+"""This function is essentially the same as the above function (scoreWord)
+However because of runtime issues it just takes a random sample of the goalWords"""
+def scoreWordRandomSample(word: str, sampleSize: int) -> int:
+    score: int = 0
+    wordLength: int = len(word)
+    goalWords: list[str] = np.random.choice(getWordsOfLengthN(wordLength), sampleSize, replace=False)
 
     for goalWord in goalWords:
         testGame: WordleN = WordleN(wordLength)
@@ -41,8 +60,11 @@ def checkWordsOfLengthN(length: int) -> list[tuple[str, int]]:
 
 
 if __name__ == '__main__':
-    scoredWords = checkWordsOfLengthN(20)
+    #print(len(getWordsOfLengthN(20)))
+    #print(f"House score: {scoreWordRandomSample('House', sampleSize=20)}")
+    scoredWords = checkWordsOfLengthN(21)
     list.sort(scoredWords, key = lambda tup: tup[1], reverse = True)
-
+    
+    print()
     for w in scoredWords:
         print(w[0] + ": " + str(w[1]))
