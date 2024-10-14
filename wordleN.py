@@ -4,7 +4,8 @@
 # Created / Modified by: Mason Lee
 
 from organizeData import getWordsOfLengthN
-from generic_search import astar, node_to_path
+#from generic_search import astar, node_to_path
+from algorithm import astar
 import random
 
 class WordleN():
@@ -65,11 +66,23 @@ class WordleN():
     goalWord:       "palms"
     Would return:
     {0:'green',1:'yellow',2:'yellow',3:'grey',4:'grey'}
-    We can then pass this to a separate function to eliminate words
-    Remember: This should also support any words of length N
-    If a letter is grey, add it to self.used_letters"""
+    """
     def checkWord(self, word: str) -> dict[int, str]:
-        pass
+        clues: dict[int, str] = {}
+        
+        # Loop through each index in guessed word
+        for i in range(len(word)):
+            # Determine index color based on goalWord
+            if word[i] == self.goalWord[i]:
+                clues[i] = "green"
+            elif word[i] in self.goalWord:
+                clues[i] = "yellow"
+            else:
+                clues[i] = "grey"
+                self.used_letters.append(word[i])
+                
+        return clues
+            
     
     """The function will run through the list of possible words and remove any
     that cannot be the solution.For instance, if the first letter is known to
@@ -117,7 +130,7 @@ class WordleN():
         frequency = len(self.alphabet) - len(self.used_letters)
         for i in self.alphabet.keys():
             if i not in self.used_letters:
-                new_dict[i, frequency]
+                new_dict[i] = frequency
                 frequency -= 1
         return new_dict
 
@@ -163,8 +176,10 @@ if __name__ == "__main__":
     test = WordleN(5)
     test.setStartWord("Grape")
     test.setGoalWord("First")
-    test.cleanup_list("q", {0:"yellow"})
+    #test.checkWord("grape")
+    #print(test.letterFrequency)
+    
     # astar is never finding the answer, i'll make a new "state" object uhhhhhhhh soon
-    alg = astar(test.startWord, test.goalTest, test.generateFrontier, test.generateHeuristic)
-    path = node_to_path(alg)
-    print(f"Start word: {test.startWord} \nGoal word: {test.goalWord} \n Path length: {alg.state}")
+    #alg = astar(test.startWord, test.goalTest, test.generateFrontier, test.generateHeuristic)
+    #path = node_to_path(alg)
+    #print(f"Start word: {test.startWord} \nGoal word: {test.goalWord} \n Path length: {alg.state}")
