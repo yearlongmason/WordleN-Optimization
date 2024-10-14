@@ -38,7 +38,7 @@ def sortWords(words: list[str]) -> dict[int, list[str]]:
     # {lengthOfWord : listOfAllWordsOfThatLength}
     return wordsByLength
     
-def getWordsOfLengthN(n: str) -> list[str]:
+def getWordsOfLengthN(n: int) -> list[str]:
     words = getAllWords()
     wordsByLength = sortWords(words)
     return wordsByLength[n]
