@@ -25,6 +25,7 @@ def astar(wordleGame: WordleN) -> list[str]:
         # generate clues for current guess and narrow down list of possible guesses
         currentClues = wordleGame.checkWord(currentGuess)
         wordleGame.cleanup_list(currentGuess, currentClues)
+        wordleGame.letterFrequency()
 
         # generate heuristic for each possible word, save the best heuristic as next guess
         # this is the equivalent of a priority queue

@@ -118,15 +118,14 @@ class WordleN:
     """Instead of having a static letter frequency we can change the letter frequency
     based on what letters have been used. This will help ensure the frequency of letters
     is evenly distributed, and that lesser used letters can still be used when solving."""
-    @property
-    def letterFrequency(self) -> dict[str, int]:
+    def letterFrequency(self):
         new_dict = {}
         frequency = len(self.alphabet) - len(self.used_letters)
         for i in self.alphabet.keys():
             if i not in self.used_letters:
                 new_dict[i] = frequency
                 frequency -= 1
-        return new_dict
+        self.alphabet = new_dict
     
     """This function should return a score for the word that is passed in.
     This is calculated by adding the frequency of each letter in the word.
