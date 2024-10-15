@@ -4,6 +4,7 @@
 # Created / Modified by: Mason Lee, Thomas Smith
 
 from wordleN import WordleN
+from colorama import Back, Style
 
 """This function should contain the main algorithm we use to play through a game.
     Parameters:
@@ -41,6 +42,22 @@ def astar(wordleGame: WordleN) -> list[str]:
         currentGuess = bestGuess
     return guessList
 
+def displaySolution(solution: list[str]):
+    display_list = []
+    for word in solution:
+        colored_word = ""
+        for char in range(len(word)):
+            if word[char] == solution[-1][char]:
+                colored_word += Back.GREEN + word[char]
+            elif word[char] in solution[-1]:
+                colored_word += Back.YELLOW + word[char]
+            else:
+                colored_word += Back.LIGHTBLACK_EX + word[char]
+        colored_word += Style.RESET_ALL
+        display_list.append(colored_word)
+    for word in display_list:
+        print(word)
+
 if __name__ == "__main__":
     # TEST CODE GOES HERE
     testGame = WordleN(5)
@@ -53,5 +70,4 @@ if __name__ == "__main__":
     print("Solved in " + str(len(solution)) + " guesses")
     print("\n")
     print("Guesses: ")
-    for word in solution:
-        print(word)
+    displaySolution(solution)
