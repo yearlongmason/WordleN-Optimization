@@ -62,7 +62,7 @@ def checkWordsOfLengthN(length: int) -> list[tuple[str, int]]:
 if __name__ == '__main__':
     #print(len(getWordsOfLengthN(20)))
     #print(f"House score: {scoreWordRandomSample('House', sampleSize=20)}")
-    scoredWords = checkWordsOfLengthN(21)
+    scoredWords = checkWordsOfLengthN(24)
     list.sort(scoredWords, key = lambda tup: tup[1], reverse = True)
     
     print()
