@@ -1,7 +1,7 @@
 # Project: Wordle-N Optimization
 # wordOptimization.py
 # Test and score words to find the optimal starting word.
-# Created / Modified by: Thomas Smith
+# Created / Modified by: Thomas Smith, Mason Lee
 
 from algorithm import astar
 from wordleN import WordleN

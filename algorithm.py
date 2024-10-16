@@ -42,6 +42,8 @@ def astar(wordleGame: WordleN) -> list[str]:
         currentGuess = bestGuess
     return guessList
 
+"""This function is meant to display the path the algorithm took to get from
+the start word to the goal word using colorama to show Wordle clues"""
 def displaySolution(solution: list[str]):
     display_list = []
     for word in solution:

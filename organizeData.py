@@ -1,6 +1,6 @@
 # Project: Wordle-N Optimization
-# organizeData
-# Grab data from english.xlsx and sort into different text files based on word length
+# organizeData.py
+# Grab data from scrabbleWords.csv and sort into different text files based on word length
 # e.g. wordle6Data.txt would have all 6 letter words
 # Created / Modified by: Mason Lee
 

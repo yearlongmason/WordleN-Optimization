@@ -1,7 +1,7 @@
 # Project: Wordle-N Optimization
 # wordleN.py
 # Implement WordleN class to be able to play/simulate WordleN.
-# Created / Modified by: Mason Lee
+# Created / Modified by: Mason Lee, Alex Mayo
 
 from organizeData import getWordsOfLengthN
 import random
@@ -142,18 +142,6 @@ class WordleN:
                 heuristic += value
                 used_letters.append(i)
         return heuristic
-    
-    """This function may need to contain other smaller functions to accomplish the goal
-    The idea is for this function is to be able to use astar() to search for the goalWord.
-    astar() will likely give back a node or a list of words that it took to reach the solution.
-    Since astar returns the shortest path we will have to modify it to also return the explored nodes
-    or the path it took to reach the word goal we know how many words it explored to get to the 
-    goal word which will be the basis of how we determine how good a starting word is 
-    (length of the list of explored nodes)
-    So essentially this function will use astar() to somehow get a list of words
-    it had to guess to reach the goal word"""
-    def getSolutionPath(self) -> list[str]:
-        pass
     
     
 if __name__ == "__main__":
