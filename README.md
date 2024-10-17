@@ -7,6 +7,6 @@ To run this program, simply run wordOptimization.py. You will be prompted for th
 If you would like to get the score of an individual word, comment out the beginning code of the main section in wordOptimization.py, uncomment the second half of the main, and run wordOptimization.py. You will be prompted for a word a sample size, and it will output the average number of guesses it takes for that word to reach the goal word
 
 # Sources
-[Data Set (Scrabble Dictionary)](https://figshare.com/articles/dataset/Enable_Scrabble_Dictionary/7492499/2)
-[Letter Frequencies](https://www3.nd.edu/~busiforc/handouts/cryptography/letterfrequencies.html)
-[Wordle-N Inspiration](https://zlee1.github.io/wordle.html)
+- [Data Set (Scrabble Dictionary)](https://figshare.com/articles/dataset/Enable_Scrabble_Dictionary/7492499/2)
+- [Letter Frequencies](https://www3.nd.edu/~busiforc/handouts/cryptography/letterfrequencies.html)
+- [Wordle-N Inspiration](https://zlee1.github.io/wordle.html)
