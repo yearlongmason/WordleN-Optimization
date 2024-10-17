@@ -48,3 +48,10 @@ if __name__ == "__main__":
     #print(getAllWords())
     #print(getWordsOfLengthN(28))
     print(len(getWordsOfLengthN(24)))
+    
+    # Data visualization of word length distribution
+    #import matplotlib.pyplot as plt
+    #lenWords = [str(length) for length, words in sortWords(getAllWords()).items()]
+    #numWords = [len(words) for length, words in sortWords(getAllWords()).items()]
+    #plt.figure(figsize=(10,6))
+    #plt.bar(lenWords, numWords)

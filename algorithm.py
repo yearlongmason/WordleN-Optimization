@@ -26,14 +26,14 @@ def astar(wordleGame: WordleN) -> list[str]:
         # generate clues for current guess and narrow down list of possible guesses
         currentClues = wordleGame.checkWord(currentGuess)
         wordleGame.cleanup_list(currentGuess, currentClues)
-        wordleGame.letterFrequency()
+        #wordleGame.letterFrequency()
 
         # generate heuristic for each possible word, save the best heuristic as next guess
         # this is the equivalent of a priority queue
         bestGuess: str = ''
         bestHeuristic: int = 0
         for guess in wordleGame.possibleWords:
-            heuristic = wordleGame.generateHeuristic(guess)
+            heuristic = wordleGame.generateHeuristic(guess.lower())
             if heuristic > bestHeuristic:
                 bestHeuristic = heuristic
                 bestGuess = guess
@@ -63,7 +63,7 @@ def displaySolution(solution: list[str]):
 if __name__ == "__main__":
     # TEST CODE GOES HERE
     testGame = WordleN(5)
-    testGame.startWord = 'beast'
+    testGame.startWord = 'slate'
     testGame.getRandomGoalWord()
 
     solution = astar(testGame)
