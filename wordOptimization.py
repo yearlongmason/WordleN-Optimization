@@ -11,8 +11,6 @@ import numpy as np
 """ This function should take a word, and test it as a starting word using our algorithm.
     The starting word will be tested with a sample of every possible goal word, and its score will be
     the average number of guesses it took to solve each puzzle (lower score is, of course, better)."""
-
-
 def scoreWord(word: str, sampleSize: int) -> int:
     score: int = 0
     wordLength: int = len(word)
@@ -43,8 +41,6 @@ def scoreWord(word: str, sampleSize: int) -> int:
 """ This function should take an integer, and return a list of all words of that length,
     and their scores.
     !!! THIS WILL TAKE YEARS TO RUN BE CAREFUL !!!"""
-
-
 def checkWordsOfLengthN(length: int, sampleSize=10) -> list[tuple[str, int]]:
     # Get all words of length N
     wordsToTest: list[str] = getWordsOfLengthN(length)

@@ -31,6 +31,12 @@ def visualizeWordDistribution():
     
 
 if __name__ == "__main__":
-    visualizeWordDistribution()
+    # Fake data for testing
+    testScores = [("hello", 4.9), ("house", 4.8), ("mouse", 4.7), ("slams", 4.6), ("tuple", 4.5),
+                  ("jazzy", 4.4), ("hippo", 4.3), ("marks", 4.2), ("lampe", 4.1), ("dorms", 4.0),
+                  ("walks", 3.9), ("morns", 3.8), ("plate", 3.7), ("storm", 3.6), ("wells", 3.5)]
+    visualizeWordScores(testScores)
+    
+    #visualizeWordDistribution()
     
     
