@@ -65,7 +65,7 @@ if __name__ == '__main__':
     # Begin Comment here for Specific Word Score
     choice: int
     while True:
-        choice = int(input("What would you like to do?\n 1. Starting Words \n 2. Word Scoring \n 3. Exit"))
+        choice = int(input("What would you like to do?\n 1. Starting Words \n 2. Word Scoring \n 3. Exit\n"))
         if choice == 1:
             # CAUTION: Using word lengths between 3 and 19 will likely take a VERY long time to run
             wordLength = int(input("What length word would you like to search through? "))

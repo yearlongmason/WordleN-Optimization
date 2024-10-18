@@ -4,7 +4,7 @@
 # Created / Modified by: Mason Lee
 
 """This function grabs data from a csv and returns all words"""
-def getAllWords() -> dict[str, int]:
+def getAllWords() -> list[str]:
     
     # Get data from csv
     with open(file="Data/scrabbleWords.csv") as file:
@@ -47,7 +47,7 @@ if __name__ == "__main__":
     
     #print(getAllWords())
     #print(getWordsOfLengthN(28))
-    print(len(getWordsOfLengthN(24)))
+    print(len(getWordsOfLengthN(8)))
     
     # Data visualization of word length distribution
     #import matplotlib.pyplot as plt
